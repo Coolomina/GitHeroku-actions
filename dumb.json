@@ -1,0 +1,12 @@
+{
+  "flipaos": [
+    { "id": 1, "name": "omars", "location": "ES" },
+    { "id": 2, "name": "deivids", "location": "ES" },
+    { "id": 3, "name": "paks", "location": "ES" },
+    { "id": 4, "name": "FJL", "location": "ES" },
+    { "id": 5, "name": "anduan", "location": "ES" },
+    { "id": 6, "name": "FV", "location": "ES" },
+    { "id": 7, "name": "eidrien", "location": "UK" },
+    { "id": 8, "name": "coolomain", "location": "ES" }
+  ]
+}
