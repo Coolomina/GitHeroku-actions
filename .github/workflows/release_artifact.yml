@@ -1,6 +1,8 @@
 name: Docker Image CI
 
 on: [push]	
+env:
+  HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
 
 jobs:	
   release:	
@@ -11,19 +13,13 @@ jobs:
       run: docker run --rm -i hadolint/hadolint < Dockerfile	
     - name: Heroku login	
       uses: actions/heroku@master
-      env:	
-        HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}	
       with:	
         args: container:login	
     - name: Heroku push	
       uses: actions/heroku@master	
-      env:	
-        HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}	
       with:	
         args: container:push -a dummy-container web
     - name: Heroku release	
       uses: actions/heroku@master	
-      env:	
-        HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}	
       with:	
         args: container:release -a dummy-container web
