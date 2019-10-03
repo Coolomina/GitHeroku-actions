@@ -1,6 +1,9 @@
 name: Docker Image CI
 
-on: [push]	
+on:
+  push:
+    branches:
+    - master
 env:
   HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
 
@@ -12,14 +15,14 @@ jobs:
     - name: Docker linting	
       run: docker run --rm -i hadolint/hadolint < Dockerfile	
     - name: Heroku login	
-      uses: actions/heroku@master
+      uses: actions/heroku@1.0.0
       with:	
         args: container:login	
     - name: Heroku push	
-      uses: actions/heroku@master	
+      uses: actions/heroku@1.0.0
       with:	
         args: container:push -a dummy-container web
     - name: Heroku release	
-      uses: actions/heroku@master	
+      uses: actions/heroku@1.0.0
       with:	
         args: container:release -a dummy-container web
